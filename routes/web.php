@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EmpleadoController;
@@ -21,6 +21,15 @@ Route::get('/', function () {
     return view('login');
 });
 
+
+Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
+
+
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
-Route::get('/clientes', [App\Http\Controllers\ClienteController::class, 'index'])->name('clientes');
+Route::get('/clientes',  [App\Http\Controllers\ClienteController::class, 'index'])->name('clientes');
+Route::get('/clientes-create',  [App\Http\Controllers\ClienteController::class, 'create'])->name('clientes-create');
+Route::post('/clientes-store',  [App\Http\Controllers\ClienteController::class, 'store'])->name('clientes-store');
+
 Route::get('/empleados', [App\Http\Controllers\EmpleadoController::class, 'index'])->name('empleados');
+Route::get('/empleados-create', [App\Http\Controllers\EmpleadoController::class, 'create'])->name('empleados-create');
+Route::post('/empleados-store',  [App\Http\Controllers\EmpleadoController::class, 'store'])->name('empleados-store');

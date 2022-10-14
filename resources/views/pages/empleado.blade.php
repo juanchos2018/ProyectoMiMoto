@@ -1,44 +1,50 @@
 @extends('layouts.master')
 
 @section('contenido')
-<div class="row page-titles">
-    <div class="col-md-5 align-self-center">
-        <h4 class="text-themecolor">Registrar Empleado</h4>
-    </div>
-</div>
 
 <div class="card">
     <div class="card-body">
-        <h2 class="card-title text-center">Recepcion Amplificación</h2>
-        <div class="row p-20">
-            <ul class="nav nav-tabs customtab" role="tablist">
-                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#recepcion" role="tab"><span
-                            class="hidden-sm-up"><i class="ti-home"></i></span> <span
-                            class="hidden-xs-down">Recepcion</span></a> </li>
-                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#buscar" role="tab"><span
-                            class="hidden-sm-up"><i class="ti-search"></i></span> <span
-                            class="hidden-xs-down">Buscar</span></a> </li>
-            </ul>
+        <h2 class="card-title text-center">Lista de Empleados</h2><br>
 
-        </div>
-        <div class="tab-content">
-            <div class="tab-pane active" id="recepcion" role="tabpanel">           
-                <div class="col-md-12 p-3 form-inline">
-                    <label class="mr-3 pl-3">Ficha: </label>
-                    <input type="text" class="form-control">
-                    <button class="btn btn-primary ml-2"><i class="fas fa-search mr-1"></i>Buscar</button>
-                </div>
-             
-                <div class="col-md-12 p-20 m-2 border">
-                    <h4 class="text-left mb-3">Ordenes</h4>
-                    <tabla-empleado></tabla-empleado>                  
-                    
-                </div>
-               
-            </div>
+        <div class="col-md-12 p-3 form-inline">
 
-            <div class="tab-pane p-20" id="buscar" role="tabpanel"></div>
-        </div>
+            <input type="text" class="form-control">
+            <button class="btn btn-primary ml-2"><i class="fas fa-search mr-1"></i>Buscar</button>
+            
+            <a href="{{ url('/empleados-create') }}" class="btn btn-primary ml-2">Nuevo Empleado</a> 
+        </div>    
+        
+        <div class="col-md-12 p-20 m-2 border">          
+
+            <table id="example" class="display" style="width:100%">
+                <thead>
+                    <th>CODIGO</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>DNI</th>
+                    <th>correo</th>
+                    <th>telefono</th>                   
+                </thead>
+                <tbody>
+                     @foreach ($empleados as $item)
+                    <tr>                         
+                        <td>{{$item->IdEmpleado}}</td>
+                        <td>{{$item->Nombres}}</td>
+                        <td>{{$item->Apellidos}}</td>
+                        <td>{{$item->DNI}}</td>
+                        <td>{{$item->correo}}</td>
+                        <td>{{$item->telefono}}</td>
+                    </tr>
+                @endforeach
+                </tbody>
+            
+
+            </table>
+
+        </div>      
     </div>
+
+</div>
+</div>
 </div>
 @stop

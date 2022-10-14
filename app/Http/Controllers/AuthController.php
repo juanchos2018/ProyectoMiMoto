@@ -17,13 +17,26 @@ class AuthController extends Controller
         $result = Usuario::login($request->username,$request->clave);   
         if ($result->status==200) {
             
-          
-           return redirect()->action([DashboardController::class, 'index']);
+      
+          $request->session()->put('id_usuario',$result->user->IdUsuario);
+          $request->session()->put('nom_empleado',$result->info->Nombres);
+          //$request->session()->put('sucursal',$request->cbx_sucursal);
+          return redirect()->action([DashboardController::class, 'index']);
              
         }else{                  
            return redirect()->back()->withErrors(['errors' => trans('auth.failed')]);
         }        
            
+    }
+
+    public function logout(){
+        if (session()->has('id_usuario')) {
+            session()->pull('id_usuario');
+            session()->pull('nom_empleado');
+            //return redirect()->action([LoginController::class, 'index']);
+
+            return view('/');
+        }
     }
 
 }

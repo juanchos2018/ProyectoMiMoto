@@ -20,10 +20,35 @@
           
         </li>
         <li class="nav-item">
+            <a href="{{ url('/categorias') }}" class="nav-link">
+            <i class="nav-icon fas fa-list orange"></i>
+                <p>
+                    Categoria
+                </p>
+            </a>   
+        </li>
+        <li class="nav-item">
+            <a href="{{ url('/horarios') }}" class="nav-link">
+            <i class="nav-icon fas fa-list orange"></i>
+                <p>
+                    Horario
+                </p>
+            </a>   
+        </li>
+        <li class="nav-item">
             <a href="{{ url('/motos') }}" class="nav-link">
             <i class="nav-icon fas fa-list orange"></i>
                 <p>
                     Motos
+                </p>
+            </a>    
+        </li>
+
+        <li class="nav-item">
+            <a href="{{ url('/salir') }}" class="nav-link">
+            <i class="nav-icon fas fa-list orange"></i>
+                <p>
+                    Ssalir
                 </p>
             </a>              
           

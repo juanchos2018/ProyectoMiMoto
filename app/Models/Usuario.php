@@ -13,24 +13,18 @@ class Usuario extends Model
 {
     use HasFactory;
 
-
-    
-    protected $primaryKey = 'IdUsuario';
-
    
-
-
-
+    protected $primaryKey = 'IdUsuario';
 
     static  function login($username,$clave){            
         $result = new stdClass();     
  
-         $exis=DB::table('usuario')->select('usuario.username')->where('usuario.username', $username)->first();
+         $exis=DB::table('usuario')->select('usuario.nom_usuario')->where('usuario.nom_usuario', $username)->first();
  
          if ($exis) {                
            $user = DB::table('usuario')         
-           ->select('usuario.IdUsuario','usuario.username')     
-           ->where('usuario.username', $username)     
+           ->select('usuario.IdEmpleado','usuario.IdUsuario','usuario.nom_usuario')     
+           ->where('usuario.nom_usuario', $username)     
            ->where('usuario.clave', $clave)         
            ->first();     
  
@@ -39,6 +33,7 @@ class Usuario extends Model
              $result->status = 200;
              $result->message = 'Ingreso con Exito';
              $result->user = $user;      
+             $result->info = self::infoEmpleado($user->IdEmpleado);      
       
              return $result;     
  
@@ -56,5 +51,16 @@ class Usuario extends Model
          }         
           return null;           
    }
+
+
+
+    static function infoEmpleado($IdEmpleado)
+    {	
+        return DB::table('empleado')
+        ->join("usuario", "empleado.IdEmpleado", "=", "usuario.IdEmpleado")    
+        ->select('empleado.Nombres')      
+        ->where("usuario.IdEmpleado",$IdEmpleado)
+        ->first();   		
+     }
 
 }

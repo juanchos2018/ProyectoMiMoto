@@ -25,6 +25,10 @@ class EmpleadoController extends Controller
 
     public function store(Request $request){
 
+
+       // $exist = Empleado::find('')
+
+
         $validated = $request->validate([
             'Nombres' => 'required',
             'Apellidos' => 'required',

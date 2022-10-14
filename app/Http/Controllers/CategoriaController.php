@@ -4,7 +4,39 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
+use App\Models\Categoria;
+
 class CategoriaController extends Controller
 {
     //
+
+    public function index()
+    {
+        $categorias = Categoria::get();
+        ///compact("empleados")
+        return view('pages.categoria',compact("categorias"));
+    } 
+
+    public function create()
+    {
+        return view('pages.createCategoria');
+    } 
+
+    public function store(Request $request){
+        // $exist = Empleado::find('') 
+ 
+         $validated = $request->validate([
+             'descripcion' => 'required'             
+         ]);
+ 
+         $IdCategoria = $request->IdCategoria;            
+         $categoria = Categoria::firstOrNew(['IdCategoria' => $IdCategoria]);
+         $categoria->estado="Activo";
+         $categoria->fill($request->all());
+         $categoria->save(); 
+    
+         return redirect()->action([CategoriaController::class, 'index']);
+ 
+     }
 }

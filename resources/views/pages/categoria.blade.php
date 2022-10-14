@@ -11,7 +11,8 @@
             <input type="text" class="form-control">
             <button class="btn btn-primary ml-2"><i class="fas fa-search mr-1"></i>Buscar</button>
             
-            <a href="{{ url('/clientes-create') }}" class="btn btn-primary ml-2">Nuevo categoria</a> 
+            <a href="{{ url('/categoria-create') }}" class="btn btn-primary ml-2">Nuevo categoria</a> 
+            
         </div>    
         
         <div class="col-md-12 p-20 m-2 border">          
@@ -23,7 +24,14 @@
                     <th>Estado</th>                                  
                 </thead>
                 <tbody>
-               
+                @foreach ($categorias as $item)
+                    <tr>                         
+                        <td>{{$item->IdCategoria}}</td>
+                        <td>{{$item->descripcion}}</td>
+                        <td>{{$item->estado}}</td>
+                     
+                    </tr>
+                @endforeach
                 </tbody>
 
             </table>

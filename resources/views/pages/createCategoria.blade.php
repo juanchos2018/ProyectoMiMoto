@@ -9,30 +9,15 @@
     </div>
     <div class="card-body">
 
-        <form  method="POST" action="{{ route('clientes-store') }}">
+        <form  method="POST" action="{{ route('categoria-store') }}">
              @csrf
             <div class="form-row">
                 <div class="form-group col-md-4">
-                    <label for="inputEmail4">Nombre Categoria</label>
-                    <input type="text" class="form-control" id="Nombres" required name="Nombres" placeholder="Nombres"> 
-                    <input type="hidden" class="form-control" id="IdCliente" name="IdCliente" >
+                    <label for="inputEmail4">Descripcion Categoria</label>
+                    <input type="text" class="form-control" id="descripcion" required name="descripcion" placeholder="Nombres"> 
+                    <input type="hidden" class="form-control" id="IdCategoria" name="IdCategoria" >
                 </div>
-                <div class="form-group col-md-4">
-                    <label for="inputPassword4">Apelldios</label>
-                    <input type="text" class="form-control" id="Apellidos" required name="Apellidos" placeholder="Apellidos">
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="inputPassword4">DNI</label>
-                    <input type="text" class="form-control" id="DNI" required name="DNI" placeholder="DNI">
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="inputAddress">Correo</label>
-                    <input type="email" class="form-control" id="correo" required name="correo" placeholder="correo">
-                </div>
-                <div class="form-group col-md-4">
-                    <label for="inputAddress">telefono</label>
-                    <input type="text" class="form-control" id="telefono" required name="telefono" placeholder="telefono">
-                </div>
+               
             </div>
             
             <!--   <input type="email" class="form-control" id="inputEmail4" placeholder="Email"> -->

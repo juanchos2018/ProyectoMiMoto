@@ -19,6 +19,15 @@
             </a>              
           
         </li>
+        <li class="nav-item">
+            <a href="{{ url('/motos') }}" class="nav-link">
+            <i class="nav-icon fas fa-list orange"></i>
+                <p>
+                    Motos
+                </p>
+            </a>              
+          
+        </li>
       
       
     </ul>

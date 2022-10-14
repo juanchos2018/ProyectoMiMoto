@@ -9,7 +9,7 @@
                     <form method="POST" action="{{ route('authenticate') }}">
                         @csrf
                         <div class="form-group row">
-                            <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Usuario') }}</label>
 
                             <div class="col-md-6">
                                 <input id="username" type="email" class="form-control @error('email') is-invalid @enderror" name="username" value="{{ old('email') }}" required autocomplete="username" autofocus>

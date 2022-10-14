@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EmpleadoController;
+use App\Http\Controllers\MotoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,9 @@ Route::post('/clientes-store',  [App\Http\Controllers\ClienteController::class, 
 Route::get('/empleados', [App\Http\Controllers\EmpleadoController::class, 'index'])->name('empleados');
 Route::get('/empleados-create', [App\Http\Controllers\EmpleadoController::class, 'create'])->name('empleados-create');
 Route::post('/empleados-store',  [App\Http\Controllers\EmpleadoController::class, 'store'])->name('empleados-store');
+
+
+
+Route::get('/motos',  [App\Http\Controllers\MotoController::class, 'index'])->name('motos');
+Route::get('/moto-create',  [App\Http\Controllers\MotoController::class, 'create'])->name('moto-create');
+Route::post('/moto-store',  [App\Http\Controllers\MotoController::class, 'store'])->name('moto-store');

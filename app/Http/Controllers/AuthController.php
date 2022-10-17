@@ -12,6 +12,13 @@ class AuthController extends Controller
 {
 
 
+
+    public function index()
+    {
+        return view('login');
+    }
+
+
     public function authenticate(Request $request){
 
         $result = Usuario::login($request->username,$request->clave);   
@@ -33,9 +40,9 @@ class AuthController extends Controller
         if (session()->has('id_usuario')) {
             session()->pull('id_usuario');
             session()->pull('nom_empleado');
-            //return redirect()->action([LoginController::class, 'index']);
+            return redirect()->action([AuthController::class, 'index']);
 
-            return view('/');
+           // return view('/');
         }
     }
 

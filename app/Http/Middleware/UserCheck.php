@@ -7,7 +7,7 @@ use Closure;
 class UserCheck {
 
     public function handle($request, Closure $next){
-        $user = session('usuario', '');
+        $user = session('id_usuario', '');
         if (!$user) {
             return redirect('/');
         }

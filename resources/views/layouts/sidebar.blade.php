@@ -45,7 +45,7 @@
         </li>
 
         <li class="nav-item">
-            <a href="{{ url('/salir') }}" class="nav-link">
+            <a href="{{ url('logout') }}" class="nav-link">
             <i class="nav-icon fas fa-list orange"></i>
                 <p>
                     Ssalir

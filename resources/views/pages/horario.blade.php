@@ -12,20 +12,7 @@
         </div>    
         
         <div class="col-md-12 p-20 m-2 border">          
-
-            <table id="example" class="display" style="width:100%">
-                <thead>
-                    <th>CODIGO</th>
-                    <th>Nombres</th>
-                    <th>Apellidos</th>
-                    <th>DNI</th>
-                             
-                </thead>
-                <tbody>
-                   
-                </tbody>            
-
-            </table>
+                <h5>PANZON AQUI PONER EL HORARIO</h5>
 
         </div>      
     </div>

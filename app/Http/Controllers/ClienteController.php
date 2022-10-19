@@ -14,12 +14,12 @@ class ClienteController extends Controller
     {
         $clientes = Cliente::get();
         return view('pages.cliente',compact("clientes"));
-    } 
+    }
 
     public function create()
     {
         return view('pages.createCliente');
-    } 
+    }
 
     public function store(Request $request){
 
@@ -30,13 +30,25 @@ class ClienteController extends Controller
             'correo' => 'required',
         ]);
 
-        $IdCliente = $request->IdCliente;            
+        $IdCliente = $request->IdCliente;
         $cliente = Cliente::firstOrNew(['IdCliente' => $IdCliente]);
         $cliente->fill($request->all());
         $cliente->save();
-   
+
         return redirect()->action([ClienteController::class, 'index']);
 
+    }
+
+    public function update(Request $request)
+    {
+        $cliente = Cliente::where('DNI', $request->DNI)
+                    ->update([
+                        "Nombres" => $request->Nombres,
+                        "Apellidos" => $request->Apellidos,
+                        "correo" => $request->correo,
+                        "telefono" => $request->telefono,
+                    ]);
+        return "correcto";
     }
 
 }

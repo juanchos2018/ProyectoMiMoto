@@ -8,6 +8,7 @@ use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\MotoController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\HorarioController;
+use App\Http\Controllers\UsuarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,10 +52,29 @@ Route::group(['middleware' => 'usercheck'], function () {
 
     Route::get('/horarios',  [App\Http\Controllers\HorarioController::class, 'index'])->name('horarios');
 
+
 });
 
+// Route::post('/empleado-update',  [App\Http\Controllers\CategoriaController::class, 'update'])->name('empleado-update');
+//TODO: MOVER LO DE ABAJO, DENTRO DEL MIDDLEWARE DE ARRIBA 🐷
+//usuarios
+Route::get('/usuarios',  [App\Http\Controllers\UsuarioController::class, 'index'])->name('usuarios');
+//categoria update check
+Route::get('/categoria-update',  [App\Http\Controllers\CategoriaController::class, 'update'])->name('categoria-update');
+//empleado-update TODO: CAMBIAR A POST MARRANO 🐖
+Route::get('/empleado-update',  [App\Http\Controllers\EmpleadoController::class, 'update'])->name('empleado-update');
+//cliente-update check TODO: CAMBIAR A POST MARRANO 🐖
+Route::get('/cliente-update',  [App\Http\Controllers\ClienteController::class, 'update'])->name('cliente-update');
+//moto-update check TODO: CAMBIAR A POST MARRANO 🐖
+Route::get('/moto-update',  [App\Http\Controllers\MotoController::class, 'update'])->name('moto-update');
+//usuario store TODO: CAMBIAR A POST MARRANO 🐖
+Route::get('/usuario-update',  [App\Http\Controllers\UsuarioController::class, 'store'])->name('usuario-update');
+
+
+// Route::post('/empleado-update',  [App\Http\Controllers\CategoriaController::class, 'update'])->name('empleado-update');
+
 //Route::middleware(['usercheck'])->group(function () {
-    
+
 //});
 
 

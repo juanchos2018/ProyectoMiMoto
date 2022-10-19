@@ -16,12 +16,12 @@ class EmpleadoController extends Controller
     {
         $empleados = Empleado::get();
         return view('pages.empleado',compact("empleados"));
-    } 
+    }
 
     public function create()
     {
         return view('pages.createEmpleado');
-    } 
+    }
 
     public function store(Request $request){
 
@@ -36,7 +36,7 @@ class EmpleadoController extends Controller
             'correo' => 'required',
         ]);
 
-        $IdEmpleado = $request->IdEmpleado;            
+        $IdEmpleado = $request->IdEmpleado;
         $empleado = Empleado::firstOrNew(['IdEmpleado' => $IdEmpleado]);
         $empleado->fill($request->all());
         $empleado->save();
@@ -44,14 +44,28 @@ class EmpleadoController extends Controller
         //$IdEmpleado=$empleado->id;
 
         // $obj  =new Usuario();
-        // $obj->username=$request->username;     
-        // $obj->clave=$request->clave;   
-        // $obj->IdEmpleado=$request->IdEmpleado;         
-        // $obj->save();  
-  
-   
+        // $obj->username=$request->username;
+        // $obj->clave=$request->clave;
+        // $obj->IdEmpleado=$request->IdEmpleado;
+        // $obj->save();
+
+
         return redirect()->action([EmpleadoController::class, 'index']);
 
+    }
+
+    public function update(Request $request){
+
+        $categoria = Empleado::where('DNI',$request->DNI)
+            ->update([
+                "Nombres" =>$request->Nombres,
+                "Apellidos" => $request->Apellidos,
+                "correo" => $request->correo,
+                "telefono" => $request->telefono,
+            ]);
+        $return = Empleado::where('DNI',$request->DNI)->get();
+        return $return;
+        // http://proyectomimoto.test/get-cat?IdCategoria=2
     }
 
 }

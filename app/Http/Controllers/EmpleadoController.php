@@ -54,6 +54,13 @@ class EmpleadoController extends Controller
 
     }
 
+    public function getEmpleado(Request $request)
+    {
+        $empleado = Empleado::where('IdEmpleado', "=" , $request->IdEmpleado)->get()->first();
+        // dd($empleado);
+        return view('pages.createEmpleado', compact("empleado"));
+    }
+
     public function update(Request $request){
 
         $categoria = Empleado::where('DNI',$request->DNI)

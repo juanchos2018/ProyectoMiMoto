@@ -39,16 +39,11 @@ class ClienteController extends Controller
 
     }
 
-    public function update(Request $request)
+    public function getCliente(Request $request)
     {
-        $cliente = Cliente::where('DNI', $request->DNI)
-                    ->update([
-                        "Nombres" => $request->Nombres,
-                        "Apellidos" => $request->Apellidos,
-                        "correo" => $request->correo,
-                        "telefono" => $request->telefono,
-                    ]);
-        return "correcto";
+        $cliente = Cliente::where('IdCliente', "=" , $request->IdCliente)->get()->first();
+        // dd($empleado);
+        return view('pages.createCliente', compact("cliente"));
     }
 
 }

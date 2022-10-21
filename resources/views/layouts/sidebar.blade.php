@@ -1,14 +1,14 @@
 <nav class="mt-2">
-    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">       
-       
+    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
         <li class="nav-item">
             <a href="{{ url('/clientes') }}" class="nav-link">
             <i class="nav-icon fas fa-list orange"></i>
                 <p>
                     Cliente
                 </p>
-            </a>               
-          
+            </a>
+
         </li>
         <li class="nav-item">
             <a href="{{ url('/empleados') }}" class="nav-link">
@@ -16,8 +16,8 @@
                 <p>
                     Empleado
                 </p>
-            </a>              
-          
+            </a>
+
         </li>
         <li class="nav-item">
             <a href="{{ url('/categorias') }}" class="nav-link">
@@ -25,7 +25,7 @@
                 <p>
                     Categoria
                 </p>
-            </a>   
+            </a>
         </li>
         <li class="nav-item">
             <a href="{{ url('/horarios') }}" class="nav-link">
@@ -33,7 +33,7 @@
                 <p>
                     Horario
                 </p>
-            </a>   
+            </a>
         </li>
         <li class="nav-item">
             <a href="{{ url('/motos') }}" class="nav-link">
@@ -41,19 +41,19 @@
                 <p>
                     Motos
                 </p>
-            </a>    
+            </a>
         </li>
 
         <li class="nav-item">
             <a href="{{ url('logout') }}" class="nav-link">
             <i class="nav-icon fas fa-list orange"></i>
                 <p>
-                    Ssalir
+                    Salir
                 </p>
-            </a>              
-          
+            </a>
+
         </li>
-      
-      
+
+
     </ul>
 </nav>

@@ -10,6 +10,8 @@
   <title>{{ config('app.name', 'Laravel') }}</title> 
   <link rel="stylesheet" href="{{ '/css/appuse.css' }}">
   <!-- <link rel="stylesheet" href="{{ mix('/css/app.css') }}"> -->
+  <!-- calendar css -->
+  <link rel="stylesheet" href="css/fullcalendar.css"/>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper" id="app">
@@ -101,6 +103,10 @@
 @endauth
 
 <script src="{{ mix('/js/app.js') }}"></script>
-
+<!-- calendar js -->
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/moment.js"></script>
+<script src="js/fullcalendar.min.js"></script>
+<script src="js/cal-init.js"></script>
 </body>
 </html>

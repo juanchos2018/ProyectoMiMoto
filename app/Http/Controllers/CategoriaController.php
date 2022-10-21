@@ -39,15 +39,21 @@ class CategoriaController extends Controller
         return redirect()->action([CategoriaController::class, 'index']);
 
     }
-    public function update(Request $request){
-
-        $categoria = Categoria::where('IdCategoria',$request->IdCategoria)
-            ->update([
-                "descripcion" => $request->descripcion,
-                "estado" => $request->estado??'A'
-            ]);
-        $return = Categoria::where('IdCategoria',$request->IdCategoria)->get();
-        return $return;
-        // http://proyectomimoto.test/get-cat?IdCategoria=2
+    public function getCategoria(Request $request)
+    {
+        $categoria = Categoria::where('IdCategoria', "=" , $request->IdCategoria)->first();
+        // dd($empleado);
+        return view('pages.createCategoria', compact("categoria"));
     }
+    // public function update(Request $request){
+
+    //     $categoria = Categoria::where('IdCategoria',$request->IdCategoria)
+    //         ->update([
+    //             "descripcion" => $request->descripcion,
+    //             "estado" => $request->estado??'A'
+    //         ]);
+    //     $return = Categoria::where('IdCategoria',$request->IdCategoria)->get();
+    //     return $return;
+    //     // http://proyectomimoto.test/get-cat?IdCategoria=2
+    // }
 }

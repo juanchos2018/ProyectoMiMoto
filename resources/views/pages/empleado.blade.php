@@ -27,7 +27,7 @@
                     <th>acciones</th>
                 </thead>
                 <tbody>
-                     @foreach ($empleados as $item)
+                    @foreach ($empleados as $item)
                     <tr>
                         <td>{{$item->IdEmpleado}}</td>
                         <td>{{$item->Nombres}}</td>

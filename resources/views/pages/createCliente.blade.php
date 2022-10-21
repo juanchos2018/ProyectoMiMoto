@@ -11,7 +11,7 @@
     <div class="card-body">
 
         <form  method="POST" action="{{ route('clientes-store') }}">
-             @csrf
+            @csrf
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="inputEmail4">Nombres</label>

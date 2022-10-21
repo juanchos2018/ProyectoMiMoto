@@ -11,7 +11,8 @@ class MotoController extends Controller
     public function index()
     {
       //  $clientes = Cliente::get();
-        return view('pages.moto');
+        $motos = Moto::get();
+        return view('pages.moto', compact('motos'));
     }
 
 
@@ -22,24 +23,43 @@ class MotoController extends Controller
 
     public function store(Request $request){
 
+        $validated = $request->validate([
+            'marca' => 'required',
+            'modelo' => 'required',
+            'color' => 'required',
+            'estado' => 'required'
+        ]);
 
+        $IdMoto = $request->IdMoto;
+        $moto = Categoria::firstOrNew(['IdCategoria' => $IdCategoria]);
+        $moto->estado="Activo";
+        $moto->fill($request->all());
+        $moto->save();
 
         return redirect()->action([MotoController::class, 'index']);
 
     }
 
-    public function update(Request $request)
+    public function getMoto(Request $request)
     {
-        $moto = Moto::where("IdMoto", $request->IdMoto)
-            ->update([
-                "marca" => $request->marca,
-                "modelo" => $request->modelo,
-                "color" => $request->color,
-                "estado" => $request->estado
-            ]);
-        // $get_moto = Moto::where("IdMoto", $request->IdMoto)->get();
-        // return $get_moto;
-        return "correcto";
+        $moto = Moto::where('IdMoto', "=" , $request->IdMoto)->first();
+        // dd($empleado);
+        return view('pages.createMoto', compact("moto"));
     }
+
+    // public function update(Request $request)
+    // {
+    //     $moto = Moto::where("IdMoto", $request->IdMoto)
+    //         ->update([
+    //             "marca" => $request->marca,
+    //             "modelo" => $request->modelo,
+    //             "color" => $request->color,
+    //             "estado" => $request->estado
+    //         ]);
+    //     // $get_moto = Moto::where("IdMoto", $request->IdMoto)->get();
+    //     // return $get_moto;
+    //     return "correcto";
+    // }
+
 
 }

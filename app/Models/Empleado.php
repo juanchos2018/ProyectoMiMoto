@@ -12,13 +12,13 @@ class Empleado extends Model
 
     protected $table = "empleado";
     protected $primaryKey = 'IdEmpleado';
-    
-    protected $fillable = [       
-        'Nombres',    
+
+    protected $fillable = [
+        'Nombres',
         'Apellidos',
         'DNI',
         'correo',
-        'telefono'         
-      ];
+        'telefono'
+    ];
 
 }

@@ -46,10 +46,12 @@ Route::group(['middleware' => 'usercheck'], function () {
 
     Route::get('/motos',  [App\Http\Controllers\MotoController::class, 'index'])->name('motos');
     Route::get('/moto-create',  [App\Http\Controllers\MotoController::class, 'create'])->name('moto-create');
+    Route::get('/moto-edit',  [App\Http\Controllers\MotoController::class, 'getMoto']);
     Route::post('/moto-store',  [App\Http\Controllers\MotoController::class, 'store'])->name('moto-store');
 
     Route::get('/categorias',  [App\Http\Controllers\CategoriaController::class, 'index'])->name('categorias');
     Route::get('/categoria-create',  [App\Http\Controllers\CategoriaController::class, 'create'])->name('categoria-create');
+    Route::get('/categoria-edit',  [App\Http\Controllers\CategoriaController::class, 'getCategoria']);
     Route::post('/categoria-store',  [App\Http\Controllers\CategoriaController::class, 'store'])->name('categoria-store');
 
     Route::get('/horarios',  [App\Http\Controllers\HorarioController::class, 'index'])->name('horarios');
@@ -65,8 +67,6 @@ Route::get('/usuarios',  [App\Http\Controllers\UsuarioController::class, 'index'
 //categoria update check
 Route::get('/categoria-update',  [App\Http\Controllers\CategoriaController::class, 'update'])->name('categoria-update');
 
-//cliente-update check TODO: CAMBIAR A POST MARRANO 🐖
-Route::get('/cliente-update',  [App\Http\Controllers\ClienteController::class, 'update'])->name('cliente-update');
 //moto-update check TODO: CAMBIAR A POST MARRANO 🐖
 Route::get('/moto-update',  [App\Http\Controllers\MotoController::class, 'update'])->name('moto-update');
 //usuario store TODO: CAMBIAR A POST MARRANO 🐖

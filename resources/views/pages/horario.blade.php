@@ -7,13 +7,11 @@
 
         <div class="row">
             <div class="col-md-3">
-                <h2 class="card-title text-center">Lista de Servicios<h2>
+                <h2 class="card-title text-center">Lista de Servicios<h2><br>
             </div>
 
             <div class="col-md-9">
-                <div class="b-l calender-sidebar" style="font-size: 12px">
-                    <div id="calendar"></div>
-                </div>
+                <div id="agenda"></div>
             </div>
         </div>
 
@@ -41,3 +39,4 @@
 </div>
 </div>
 @stop
+

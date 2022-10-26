@@ -11,7 +11,9 @@
   <link rel="stylesheet" href="{{ '/css/appuse.css' }}">
   <!-- <link rel="stylesheet" href="{{ mix('/css/app.css') }}"> -->
   <!-- calendar css -->
-  <link rel="stylesheet" href="css/fullcalendar.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/locales-all.js"></script>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper" id="app">
@@ -104,9 +106,6 @@
 
 <script src="{{ mix('/js/app.js') }}"></script>
 <!-- calendar js -->
-<script src="js/jquery-ui.min.js"></script>
-<script src="js/moment.js"></script>
-<script src="js/fullcalendar.min.js"></script>
-<script src="js/cal-init.js"></script>
+<script src="js/agenda.js"></script>
 </body>
 </html>

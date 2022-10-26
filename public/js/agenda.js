@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     calendar.render();
+    
 
     document.getElementById("btnGuardar").addEventListener("click", function(){
         const datos = new FormData();

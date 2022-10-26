@@ -7,7 +7,7 @@
 
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <title>{{ config('app.name', 'Laravel') }}</title> 
+  <title>{{ config('app.name', 'Laravel') }}</title>
   <link rel="stylesheet" href="{{ '/css/appuse.css' }}">
   <!-- <link rel="stylesheet" href="{{ mix('/css/app.css') }}"> -->
   <!-- calendar css -->
@@ -17,14 +17,14 @@
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper" id="app">
-  
+
   <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
       </li>
     </ul>
-   
+
     <form class="form-inline ml-3">
       <div class="input-group input-group-sm">
         <input class="form-control form-control-navbar" type="search" placeholder="Buscar" aria-label="Search">
@@ -37,17 +37,17 @@
     </form>
 
   </nav>
- 
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">  
-  
+
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+
     <div class="sidebar">
 
       <a>
           <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-              <div class="image">              
+              <div class="image">
               </div>
               <div class="info">
-                  
+
                   usuario
                   <span class="d-block text-muted">
                   Admin
@@ -57,14 +57,14 @@
         </>
 
       @include('layouts.sidebar')
-  
+
     </div>
- 
+
   </aside>
 
 
-  <div class="content-wrapper"> 
- 
+  <div class="content-wrapper">
+
     <div class="content-header">
       <div class="container-fluid">
         {{-- <div class="row mb-2">
@@ -79,22 +79,22 @@
           </div>
         </div><!-- /.row --> --}}
       </div>
-    </div> 
-         <div class="page-wrapper">        
-            <div class="container-fluid">                
+    </div>
+         <div class="page-wrapper">
+            <div class="container-fluid">
                 @yield('contenido')
             </div>
-        </div>  
+        </div>
   </div>
 
- 
-  <footer class="main-footer">    
+
+  <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 3.0.0
     </div>
     <strong>Copi Rigth &copy; 2022 <a href="https://juanchosserver.shop">juanchosserver.shop</a>.</strong> All rights reserved.
   </footer>
-  
+
 </div>
 
 

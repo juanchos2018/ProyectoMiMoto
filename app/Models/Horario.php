@@ -11,4 +11,10 @@ class Horario extends Model
 
     protected $table = "horario";
     protected $primaryKey = 'IdHorario';
+
+    protected $fillable = [        
+        'IdEmpleado',
+        'IdCategoria',
+        'fec_atencion',
+    ];
 }

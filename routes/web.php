@@ -9,7 +9,7 @@ use App\Http\Controllers\MotoController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\HorarioController;
 use App\Http\Controllers\UsuarioController;
-
+use App\Http\Controllers\CitaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -57,7 +57,9 @@ Route::group(['middleware' => 'usercheck'], function () {
     //Route::get('/horarios',  [App\Http\Controllers\HorarioController::class, 'index'])->name('horarios');
     Route::get('/horarios',  [App\Http\Controllers\HorarioController::class, 'index']);
 
-
+    Route::get('/citas',  [App\Http\Controllers\CitaController::class, 'index'])->name('citas');
+    Route::get('/cita-create',  [App\Http\Controllers\CitaController::class, 'create'])->name('cita-create');
+    Route::post('/cita-store',  [App\Http\Controllers\CitaController::class, 'store'])->name('cita-store');
 
 });
 

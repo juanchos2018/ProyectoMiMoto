@@ -28,6 +28,6 @@ class CreateCategoriaTabla extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('TipoCita');
+        Schema::dropIfExists('Categoria');
     }
 }

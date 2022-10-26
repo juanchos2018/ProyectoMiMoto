@@ -43,6 +43,14 @@
                 </p>
             </a>
         </li>
+        <li class="nav-item">
+            <a href="{{ url('/citas') }}" class="nav-link">
+            <i class="nav-icon fas fa-list orange"></i>
+                <p>
+                    Citas
+                </p>
+            </a>
+        </li>
 
         <li class="nav-item">
             <a href="{{ url('logout') }}" class="nav-link">

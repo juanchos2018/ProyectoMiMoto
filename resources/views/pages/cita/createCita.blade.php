@@ -71,4 +71,9 @@
 
     </div>
     </div>
+<script>
+$(document).ready(function () {
+    {{ isset($mensaje)?"alert('$mensaje');":"" }}
+});
+</script>
 @stop

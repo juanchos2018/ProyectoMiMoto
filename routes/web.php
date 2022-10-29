@@ -33,7 +33,6 @@ Route::get('/logout', [AuthController::class, 'logout']);
 
 Route::group(['middleware' => 'usercheck'], function () {
 
-    Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
     Route::get('/clientes',  [App\Http\Controllers\ClienteController::class, 'index'])->name('clientes');
     Route::get('/clientes-edit',  [App\Http\Controllers\ClienteController::class, 'getCliente']);
     Route::get('/clientes-create',  [App\Http\Controllers\ClienteController::class, 'create'])->name('clientes-create');
@@ -45,21 +44,28 @@ Route::group(['middleware' => 'usercheck'], function () {
     Route::get('/empleados-edit',  [App\Http\Controllers\EmpleadoController::class, 'getEmpleado']);
 
     Route::get('/motos',  [App\Http\Controllers\MotoController::class, 'index'])->name('motos');
+    Route::get('/motos-records',  [App\Http\Controllers\MotoController::class, 'records']);
     Route::get('/moto-create',  [App\Http\Controllers\MotoController::class, 'create'])->name('moto-create');
     Route::get('/moto-edit',  [App\Http\Controllers\MotoController::class, 'getMoto']);
     Route::post('/moto-store',  [App\Http\Controllers\MotoController::class, 'store'])->name('moto-store');
 
     Route::get('/categorias',  [App\Http\Controllers\CategoriaController::class, 'index'])->name('categorias');
+    Route::get('/categorias-records',  [App\Http\Controllers\CategoriaController::class, 'records']);
     Route::get('/categoria-create',  [App\Http\Controllers\CategoriaController::class, 'create'])->name('categoria-create');
     Route::get('/categoria-edit',  [App\Http\Controllers\CategoriaController::class, 'getCategoria']);
     Route::post('/categoria-store',  [App\Http\Controllers\CategoriaController::class, 'store'])->name('categoria-store');
 
     //Route::get('/horarios',  [App\Http\Controllers\HorarioController::class, 'index'])->name('horarios');
     Route::get('/horarios',  [App\Http\Controllers\HorarioController::class, 'index'])->name('horarios');;
-    Route::post('/horario-store',  [App\Http\Controllers\HorarioController::class, 'store'])->name('horario-store');;
+    Route::get('/horario-categoria/{IdCategoria}',  [App\Http\Controllers\HorarioController::class, 'horariocategoria']);
+    Route::post('/horario-store',  [App\Http\Controllers\HorarioController::class, 'store'])->name('horario-store');
 
     Route::get('/citas',  [App\Http\Controllers\CitaController::class, 'index'])->name('citas');
     Route::get('/cita-create',  [App\Http\Controllers\CitaController::class, 'create'])->name('cita-create');
+    Route::get('/citas-create',  [App\Http\Controllers\CitaController::class, 'creates'])->name('citas-create');
+    Route::post('/cita-store',  [App\Http\Controllers\CitaController::class, 'store'])->name('cita-store');
+
+    Route::get('/gethorario/{fecha}',  [App\Http\Controllers\HorarioController::class, 'getHorario']);
     // Route::post('/cita-store',  [App\Http\Controllers\CitaController::class, 'store'])->name('cita-store');
 
 });

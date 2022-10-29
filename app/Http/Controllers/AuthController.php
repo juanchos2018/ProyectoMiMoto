@@ -28,7 +28,7 @@ class AuthController extends Controller
           $request->session()->put('id_usuario',$result->user->IdUsuario);
           $request->session()->put('nom_empleado',$result->info->Nombres);
           //$request->session()->put('sucursal',$request->cbx_sucursal);
-          return redirect()->action([DashboardController::class, 'index']);
+          return redirect()->route('home');
              
         }else{                  
            return redirect()->back()->withErrors(['errors' => trans('auth.failed')]);

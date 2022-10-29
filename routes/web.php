@@ -31,6 +31,8 @@ Route::get('/', [AuthController::class, 'index']);
 Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
 Route::get('/logout', [AuthController::class, 'logout']);
 
+Route::get('/home', [DashboardController::class, 'index'])->name('home');
+
 Route::group(['middleware' => 'usercheck'], function () {
 
     Route::get('/clientes',  [App\Http\Controllers\ClienteController::class, 'index'])->name('clientes');

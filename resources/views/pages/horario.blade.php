@@ -4,21 +4,21 @@
 <div class="card">
     <div class="card-body">
         <h2 class="card-title text-center">Horario de Atenciones<h2><br>
-                <hr><br>
+        
+        <hr><br>
 
-                <div class="row">
-                    <div class="col-md-3">
-                        <h2 class="card-title text-center">Lista de Servicios<h2><br>
-                                @foreach ($categoria as $item)
-                                <h5><i class="fa fa-circle text-{{$item->color}}"></i> {{$item->descripcion}}</h5>
-                                @endforeach
-                    </div>
+        <div class="row">
+            <div class="col-md-3">
+                <h2 class="card-title text-center">Lista de Servicios<h2><br>
+                @foreach ($categoria as $item)
+                <h5><i class="fa fa-circle" style="color: {{$item->color}}"></i> {{$item->descripcion}}</h5>
+                @endforeach                
+            </div>
 
-                    <div class="col-md-9" style="font-size: 14px">
-                        <div id="agenda"></div>
-                    </div>
-                </div>
-
+            <div class="col-md-9" style="font-size: 14px">
+                <div id="agenda"></div>
+            </div>
+        </div>
     </div>
 </div>
 

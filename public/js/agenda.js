@@ -11,47 +11,35 @@ document.addEventListener('DOMContentLoaded', function() {
             center: 'title',
             right: 'dayGridMonth,timeGridWeek,listWeek'
         },
-        dateClick: function(info){
+        events: "http://127.0.0.1:8000/horario-show",
+        dateClick: function(info){            
             $('#start').val(info.dateStr);
             $('#evento').modal('show');
         }
     });
     calendar.render();
-    
+
 
     document.getElementById("btnGuardar").addEventListener("click", function(){
         const datos = new FormData();
-        let token = document.getElementsByName("_token").value;
         let empleado = document.getElementById("empleado").value;
         let categoria = document.getElementById("categoria").value;
         let start = document.getElementById("start").value;
 
-        // datos.append("_token",token);
         datos.append("IdEmpleado",empleado);
         datos.append("IdCategoria",categoria);
         datos.append("fec_atencion",start);
 
 
-        //print_r(datos);
-        //console.log(empleado);
-        //console.log(formulario.id.value);
-
-        axios.post("./horario-store", datos,
+        axios.post("http://127.0.0.1:8000/horario-store", datos,
             {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             } 
         ).
         then(
             (respuesta) => {
-                const {status,message}=respuesta.data;
-                if (status==200) {
-                   alert(message)
-                   $('#evento').modal('hide');
-                }else{
-                    console.log(response);                 
-                    alert(message)
-                }
-            
+                calendar.refetchEvents();
+                $('#evento').modal('hide');
             }
         ).catch(
             error=>{

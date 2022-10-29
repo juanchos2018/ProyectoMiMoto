@@ -38,9 +38,16 @@ class HorarioController extends Controller
         //$horario = Horario::select('IdCategoria as title','fec_atencion as start','fec_atencion as end')->get();
         $horario = DB::table('horario')
                     ->join('categoria', 'categoria.IdCategoria', '=', 'horario.IdCategoria')
-                    ->select('categoria.descripcion AS title','horario.fec_atencion as start','horario.fec_atencion as end','categoria.color as color')
+                    ->select('horario.IdHorario as id','categoria.descripcion AS title','horario.fec_atencion as start','horario.fec_atencion as end','categoria.color as color')
                     ->get();
         //dd($horario);
+        return response()->json($horario);
+    }
+
+    public function edit($IdHorario)
+    {
+        //
+        $horario = Horario::find($IdHorario);
         return response()->json($horario);
     }
 }

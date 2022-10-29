@@ -11,10 +11,34 @@ document.addEventListener('DOMContentLoaded', function() {
             center: 'title',
             right: 'dayGridMonth,timeGridWeek,listWeek'
         },
+        //para listar
         events: "http://127.0.0.1:8000/horario-show",
+        //para nuevo
         dateClick: function(info){            
             $('#start').val(info.dateStr);
             $('#evento').modal('show');
+        },
+        //para editar
+        eventClick: function(info){
+            var horario = info.event;
+            console.log(horario);
+
+            axios.get("http://127.0.0.1:8000/horario-edit/"+horario.id).
+            then(
+                (respuesta) => {
+                    console.log(respuesta);
+                    $('#empleado').val(respuesta.data.IdEmpleado);
+                    $('#categoria').val(respuesta.data.IdCategoria);
+                    $('#start').val(respuesta.data.fec_atencion);
+                    $('#evento').modal('show');
+                }
+            ).catch(
+                error=>{
+                    if(error.response){
+                        console.log(error.response.data);
+                    }
+                }
+            )
         }
     });
     calendar.render();

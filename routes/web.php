@@ -61,6 +61,8 @@ Route::group(['middleware' => 'usercheck'], function () {
     Route::get('/horarios',  [App\Http\Controllers\HorarioController::class, 'index'])->name('horarios');
     Route::post('/horario-store',  [App\Http\Controllers\HorarioController::class, 'store'])->name('horario-store');
     Route::get('/horario-show',  [App\Http\Controllers\HorarioController::class, 'show'])->name('horario-show');
+    Route::get('/horario-edit/{IdHorario}',  [App\Http\Controllers\HorarioController::class, 'edit'])->name('horario-edit');
+
 
     Route::get('/citas',  [App\Http\Controllers\CitaController::class, 'index'])->name('citas');
     Route::get('/cita-create',  [App\Http\Controllers\CitaController::class, 'create'])->name('cita-create');

@@ -9,25 +9,25 @@
              @csrf
             <div class="form-row">
                 <div class="form-group col-md-4">
-                    <label for="inputEmail4">Marca</label>
-                    <input type="text" class="form-control" id="Nombres" required name="Nombres" placeholder="Nombres"> 
-                    <input type="hidden" class="form-control" id="IdCliente" name="IdCliente" >
+                    <label for="marca">Marca</label>
+                    <input type="text" class="form-control" id="marca" required name="marca" placeholder="marca"> 
+                    <input type="hidden" class="form-control" id="IdMoto" name="IdMoto" >
                 </div>
                 <div class="form-group col-md-4">
-                    <label for="inputPassword4">Modelo</label>
-                    <input type="text" class="form-control" id="Apellidos" required name="Apellidos" placeholder="Apellidos">
+                    <label for="modelo">Modelo</label>
+                    <input type="text" class="form-control" id="modelo" required name="modelo" placeholder="modelo">
                 </div>
                 <div class="form-group col-md-4">
-                    <label for="inputPassword4">Color</label>
-                    <input type="text" class="form-control" id="DNI" required name="DNI" placeholder="DNI">
+                    <label for="color">Color</label>
+                    <input type="text" class="form-control" id="color" required name="color" placeholder="color">
                 </div>
                 <div class="form-group col-md-4">
-                    <label for="inputAddress">Combustible</label>
-                    <input type="email" class="form-control" id="correo" required name="correo" placeholder="correo">
+                    <label for="Combustible">Combustible</label>
+                    <input type="text" class="form-control" id="Combustible" required name="Combustible" placeholder="Combustible">
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputAddress">Peso</label>
-                    <input type="text" class="form-control" id="telefono" required name="telefono" placeholder="telefono">
+                    <input type="text" class="form-control" id="Peso" required name="Peso" placeholder="Peso">
                 </div>
             </div>            
             <!--   <input type="email" class="form-control" id="inputEmail4" placeholder="Email"> -->

@@ -2,6 +2,7 @@
 
 @section('contenido')
 
+
     <div class="row">
         <div class="col-md-7">
             <div class="card">
@@ -12,6 +13,9 @@
                 <div class="card-body">
                     @include('pages.cita.components.mini_calendar')
                 </div>
+
+
+
             </div>
         </div>
         <div class="col-md-5">

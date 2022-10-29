@@ -23,15 +23,9 @@ class MotoController extends Controller
 
     public function store(Request $request){
 
-        $validated = $request->validate([
-            'marca' => 'required',
-            'modelo' => 'required',
-            'color' => 'required',
-            'estado' => 'required'
-        ]);
-
+      
         $IdMoto = $request->IdMoto;
-        $moto = Categoria::firstOrNew(['IdCategoria' => $IdCategoria]);
+        $moto = Moto::firstOrNew(['IdMoto' => $IdMoto]);
         $moto->estado="Activo";
         $moto->fill($request->all());
         $moto->save();
@@ -45,6 +39,14 @@ class MotoController extends Controller
         $moto = Moto::where('IdMoto', "=" , $request->IdMoto)->first();
         // dd($empleado);
         return view('pages.createMoto', compact("moto"));
+    }
+
+
+    public function records()
+    {
+      //  $clientes = Cliente::get();
+        $motos = Moto::get();
+        return response()->json(['status' => 200,'result'=>$motos]);
     }
 
     // public function update(Request $request)

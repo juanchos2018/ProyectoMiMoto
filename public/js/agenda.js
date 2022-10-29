@@ -36,14 +36,22 @@ document.addEventListener('DOMContentLoaded', function() {
         //console.log(empleado);
         //console.log(formulario.id.value);
 
-        axios.post("http://127.0.0.1:8000/horario-store", datos,
+        axios.post("./horario-store", datos,
             {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             } 
         ).
         then(
             (respuesta) => {
-                $('#evento').modal('hide');
+                const {status,message}=respuesta.data;
+                if (status==200) {
+                   alert(message)
+                   $('#evento').modal('hide');
+                }else{
+                    console.log(response);                 
+                    alert(message)
+                }
+            
             }
         ).catch(
             error=>{

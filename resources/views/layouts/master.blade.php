@@ -11,12 +11,17 @@
   <link rel="stylesheet" href="{{ '/css/appuse.css' }}">
   <!-- <link rel="stylesheet" href="{{ mix('/css/app.css') }}"> -->
   <!-- calendar css -->
+
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.css">
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/locales-all.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/locale/es.min.js"></script>
 </head>
 <body class="hold-transition sidebar-mini">
-<div class="wrapper" id="app">
+<div class="wrapper">
 
   <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
     <ul class="navbar-nav">

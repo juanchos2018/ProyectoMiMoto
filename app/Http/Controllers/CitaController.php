@@ -17,6 +17,10 @@ class CitaController extends Controller
     {
         return view('pages.cita.createCita');
     }
+    public function creates()
+    {
+        return view('pages.cita.createCitas');
+    }
 
     public function store()
     {

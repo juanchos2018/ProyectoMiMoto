@@ -18,6 +18,15 @@ class CategoriaController extends Controller
         return view('pages.categoria',compact("categorias"));
     }
 
+
+    public function records()
+    {
+        $categorias = Categoria::get();
+        ///compact("empleados")
+        return response()->json(['status' => 200,'result'=>$categorias]);
+    }
+
+
     public function create()
     {
         return view('pages.createCategoria');

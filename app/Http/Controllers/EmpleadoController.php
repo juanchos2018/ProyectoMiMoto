@@ -71,7 +71,7 @@ class EmpleadoController extends Controller
                 "telefono" => $request->telefono,
             ]);
         $return = Empleado::where('DNI',$request->DNI)->get();
-        return $return;
+  
         // http://proyectomimoto.test/get-cat?IdCategoria=2
     }
 

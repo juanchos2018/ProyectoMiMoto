@@ -10,6 +10,7 @@
             <button class="btn btn-primary ml-2"><i class="fas fa-search mr-1"></i>Buscar</button>
 
             <a href="{{ url('/cita-create') }}" class="btn btn-primary ml-2">Nueva Cita</a>
+            <a href="{{ url('/citas-create') }}" class="btn btn-primary ml-2">Nueva Cita 2</a>
 
         </div>
 

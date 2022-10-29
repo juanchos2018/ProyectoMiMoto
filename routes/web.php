@@ -60,7 +60,7 @@ Route::group(['middleware' => 'usercheck'], function () {
 
     Route::get('/citas',  [App\Http\Controllers\CitaController::class, 'index'])->name('citas');
     Route::get('/cita-create',  [App\Http\Controllers\CitaController::class, 'create'])->name('cita-create');
-    Route::post('/cita-store',  [App\Http\Controllers\CitaController::class, 'store'])->name('cita-store');
+    // Route::post('/cita-store',  [App\Http\Controllers\CitaController::class, 'store'])->name('cita-store');
 
 });
 
@@ -75,7 +75,7 @@ Route::get('/categoria-update',  [App\Http\Controllers\CategoriaController::clas
 Route::get('/moto-update',  [App\Http\Controllers\MotoController::class, 'update'])->name('moto-update');
 //usuario store TODO: CAMBIAR A POST MARRANO 🐖
 Route::get('/usuario-update',  [App\Http\Controllers\UsuarioController::class, 'store'])->name('usuario-update');
-
+Route::get('/cita-store',  [App\Http\Controllers\CitaController::class, 'store'])->name('cita-store');
 
 // Route::post('/empleado-update',  [App\Http\Controllers\CategoriaController::class, 'update'])->name('empleado-update');
 

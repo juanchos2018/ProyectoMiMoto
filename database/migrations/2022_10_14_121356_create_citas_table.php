@@ -41,6 +41,6 @@ class CreateCitasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('citas');
+        Schema::dropIfExists('Cita');
     }
 }

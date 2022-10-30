@@ -16,6 +16,8 @@ class CreateHorariosTable extends Migration
         Schema::create('Horario', function (Blueprint $table) {
             $table->id('IdHorario');
             $table->date('fec_atencion');
+            $table->string('estado', '20');
+            $table->string('color_categoria', '20');
             $table->bigInteger('IdEmpleado')->unsigned();
             $table->bigInteger('IdCategoria')->unsigned();
             $table->foreign('IdEmpleado')->references('IdEmpleado')->on('Empleado');
@@ -31,6 +33,6 @@ class CreateHorariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('horarios');
+        Schema::dropIfExists('Horario');
     }
 }

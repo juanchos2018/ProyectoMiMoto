@@ -35,6 +35,6 @@ class CreateDetalleCitasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('detalle_citas');
+        Schema::dropIfExists('DetalleCita');
     }
 }

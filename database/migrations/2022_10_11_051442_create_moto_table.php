@@ -41,6 +41,6 @@ class CreateMotoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('motocicletas');
+        Schema::dropIfExists('Moto');
     }
 }

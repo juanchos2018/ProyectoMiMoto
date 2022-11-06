@@ -50,4 +50,20 @@ class HorarioController extends Controller
         $horario = Horario::find($IdHorario);
         return response()->json($horario);
     }
+
+
+
+    //juanchos 
+    public function horariocategoria($idcategoria){
+
+        $horario = DB::table('horario')      
+        ->join("empleado", "horario.IdEmpleado", "=", "empleado.IdEmpleado")   
+        ->select('horario.IdHorario','horario.fec_atencion','empleado.IdEmpleado','empleado.Nombres','empleado.Apellidos')   
+        ->where('horario.IdCategoria',$idcategoria)        
+        ->get();    
+        if ($horario) {
+            return response()->json(['status' => 200,'result'=>$horario]);
+        }
+        return response()->json(['status' => 400]);
+    }
 }

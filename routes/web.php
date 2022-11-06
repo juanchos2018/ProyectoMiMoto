@@ -60,6 +60,7 @@ Route::group(['middleware' => 'usercheck'], function () {
     //Route::get('/horarios',  [App\Http\Controllers\HorarioController::class, 'index'])->name('horarios');
     Route::get('/horarios',  [App\Http\Controllers\HorarioController::class, 'index'])->name('horarios');
     Route::post('/horario-store',  [App\Http\Controllers\HorarioController::class, 'store'])->name('horario-store');
+    Route::get('/horario-categoria/{IdCategoria}',  [App\Http\Controllers\HorarioController::class, 'horariocategoria']);
     Route::get('/horario-show',  [App\Http\Controllers\HorarioController::class, 'show'])->name('horario-show');
     Route::get('/horario-edit/{IdHorario}',  [App\Http\Controllers\HorarioController::class, 'edit'])->name('horario-edit');
 
@@ -67,7 +68,7 @@ Route::group(['middleware' => 'usercheck'], function () {
     Route::get('/citas',  [App\Http\Controllers\CitaController::class, 'index'])->name('citas');
     Route::get('/cita-create',  [App\Http\Controllers\CitaController::class, 'create'])->name('cita-create');
     Route::get('/citas-create',  [App\Http\Controllers\CitaController::class, 'creates'])->name('citas-create');
-    Route::post('/cita-store',  [App\Http\Controllers\CitaController::class, 'store'])->name('cita-store');
+    Route::post('/cita-store',  [App\Http\Controllers\CitaController::class, 'store']);
 
     Route::get('/gethorario/{fecha}',  [App\Http\Controllers\HorarioController::class, 'getHorario']);
     // Route::post('/cita-store',  [App\Http\Controllers\CitaController::class, 'store'])->name('cita-store');

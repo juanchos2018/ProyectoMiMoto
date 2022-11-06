@@ -5,7 +5,7 @@
         <v-row>
           <v-col cols="12" sm="4">
             <label>Servicios</label>
-            {{ categoria }}
+            <!-- {{ categoria }} -->
             <v-select
               v-model="categoria"
               placeholder="Seleccione"
@@ -182,18 +182,18 @@
                    <div class="col-md-4">
          
                   <label for="modelo">cilindrada Motor</label>
-                  <input type="text" class="form-control" id="cilindrada" v-model="model.cilindrada_motor" />
+                  <input type="number" class="form-control" id="cilindrada" v-model="model.cilindrada_motor" />
             
                 </div>
                  <div class="col-md-12">
          
                   <label for="modelo">observaciones </label>
-                  <input type="text" class="form-control" id="observaciones" v-model="model.observaciones" />
+                  <input type="text" class="form-control" id="detalle_moto" v-model="model.detalle_moto" />
             
                 </div>
               </div>
               <br>
-                <b-button variant="primary">Registrar Cita</b-button>
+                <b-button variant="primary" @click="storeCita()" >Registrar Cita</b-button>
             </b-card>
           </v-col>
         </v-row>
@@ -243,7 +243,12 @@ export default {
         modelo_motor: null,
         potencia_motor: null,
         cilindrada_motor: null,
-        observaciones: null,
+        detalle_moto: null,
+        detalle_motor: 'detealle',
+        estado: 'n',
+        IdUsuario: 1,
+        fec_registro: '2022-10-05',
+        cilindrada: 200,
       },
       categoria: null,
       moto: null,
@@ -288,17 +293,54 @@ export default {
 
     storeCita(){
       let url = "./cita-store";
-      axios({
-        method: "POST",
-        url: url,
-        data: data,
-      })
-        .then(function (response) {
-         console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      let data =this.model;
+      if (!this.model.DNI) {
+            alert("Ingresar el documento")
+      }
+      else if (!this.model.IdHorario) {
+         alert("Seleccionar una fecha")
+      }
+      else{
+        console.log(data);
+       axios.post(url, data,
+            {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            } 
+        ).
+        then(
+            (response) => {
+                  console.log(response);
+                  const {result,status } =response.data;
+                  if (status==200) {
+                    alert(result)
+                  }else if (status==400) {
+                     alert(result);
+                  }else{
+                    alert("hubo Algun error")
+                  }
+            }
+        ).catch(
+            error=>{
+             
+                console.log(error);
+                
+            }
+        )
+      }
+       
+    
+      // axios({
+      //   method: "POST",
+      //   url: url,
+      //   data: data,
+        
+      // })
+      //   .then(function (response) {
+      //    console.log(response);
+      //   })
+      //   .catch((error) => {
+      //     console.log(error);
+      //   });
     },
     changeServicio(e) {
       console.log(this.categoria);
@@ -322,6 +364,8 @@ export default {
     changeHorario(horario) {
       console.log(horario);
       this.empleado = horario.Nombres+' '+horario.Apellidos;
+      this.model.IdHorario = horario.IdHorario;
+      this.model.fec_registro = horario.fec_atencion;
     },
 
     onInput(e) {
@@ -377,7 +421,7 @@ export default {
     },
     ChangeCAtgeroria(item) {
       this.categoria = item.descripcion;
-      this.form.IdHorario = item.IdHorario;
+      this.model.IdHorario = item.IdHorario;
     },
   },
 };

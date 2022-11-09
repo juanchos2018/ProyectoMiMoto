@@ -36,6 +36,7 @@ Route::get('/home', [DashboardController::class, 'index'])->name('home');
 Route::group(['middleware' => 'usercheck'], function () {
 
     Route::get('/clientes',  [App\Http\Controllers\ClienteController::class, 'index'])->name('clientes');
+    Route::get('/clientes-records',  [App\Http\Controllers\ClienteController::class, 'records']);
     Route::get('/clientes-edit',  [App\Http\Controllers\ClienteController::class, 'getCliente']);
     Route::get('/clientes-create',  [App\Http\Controllers\ClienteController::class, 'create'])->name('clientes-create');
     Route::post('/clientes-store',  [App\Http\Controllers\ClienteController::class, 'store'])->name('clientes-store');

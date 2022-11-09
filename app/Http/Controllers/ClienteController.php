@@ -45,5 +45,11 @@ class ClienteController extends Controller
         // dd($empleado);
         return view('pages.createCliente', compact("cliente"));
     }
+    public function records()
+    {
+        $clientes = Cliente::get();
+        return response()->json(['status' => 200,'result'=>$clientes]);
+    
+    }
 
 }

@@ -27,8 +27,6 @@ class EmpleadoController extends Controller
 
 
        // $exist = Empleado::find('')
-
-
         $validated = $request->validate([
             'Nombres' => 'required',
             'Apellidos' => 'required',
@@ -50,7 +48,7 @@ class EmpleadoController extends Controller
         // $obj->save();
 
 
-        return redirect()->action([EmpleadoController::class, 'index']);
+        //return redirect()->action([EmpleadoController::class, 'index']);
 
     }
 

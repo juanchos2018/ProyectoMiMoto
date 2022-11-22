@@ -26,8 +26,4 @@ class UsuarioController extends Controller
 
         return redirect()->action([EmpleadoController::class, 'index']);
     }
-
-
-
-
 }

@@ -72,6 +72,9 @@ Route::get('/home', [DashboardController::class, 'index'])->name('home');
     Route::post('/cita-store',  [App\Http\Controllers\CitaController::class, 'store']);
 
     Route::get('/gethorario/{fecha}',  [App\Http\Controllers\HorarioController::class, 'getHorario']);
+
+    Route::get('/grafico',  [App\Http\Controllers\CitaController::class, 'grafico']);
+
     // Route::post('/cita-store',  [App\Http\Controllers\CitaController::class, 'store'])->name('cita-store');
 
 //});

@@ -6,9 +6,13 @@
           <v-col cols="12" sm="8">
             <v-system-bar window color="primary">
               <h5 style="color: white">Servicio {{ descripcion }}</h5>
+        
             </v-system-bar>
 
             <b-card header="Datos de cliente" header-tag="header">
+              <!-- <pre>
+                      {{model}}
+              </pre> -->
               <form>
                 <div class="row">
                   <div class="col-md-6">
@@ -57,8 +61,7 @@
                       v-model="categoria"
                       placeholder="Seleccione"
                       label="descripcion"
-                      style="padding-left: 4px; width: 100%"
-                    
+                      style="padding-left: 4px; width: 100%"                    
                       item-value="IdCategoria"
                       v-on:input="changeServicio"
                       :options="servicios"
@@ -110,6 +113,7 @@
                   <div class="col-md-6">
                     <!-- @click="storeCita()" -->
                     <b-button variant="primary" 
+                     @click="storeCita()"
                       >Registrar Cita</b-button
                     >
                   </div>
@@ -332,7 +336,12 @@ export default {
     this.getClientes();
   },
   methods: {
-    changeCliente() {},
+    changeCliente() {
+      if (this.cliente) {
+        
+        this.model.IdCliente=this.cliente.IdCliente;
+      }
+    },
     changeMoto() {
       if (this.moto) {
         this.model.IdMoto = this.moto.IdMoto;
@@ -350,12 +359,15 @@ export default {
     storeCita() {
       let url = "./cita-store";
       let data = this.model;
-      if (!this.model.DNI) {
+      console.log(this.cliente);
+      if (!this.model.IdCliente) {
         alert("Ingresar el documento");
       } else if (!this.model.IdHorario) {
         alert("Seleccionar una fecha");
       } else {
         console.log(data);
+
+
         axios
           .post(url, data, {
             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
@@ -394,6 +406,7 @@ export default {
       let me = this;
       me.descripcion = me.categoria.descripcion;
       let url = "./horario-categoria/" + me.categoria.IdCategoria;
+      console.log("url",url);
       axios({
         method: "GET",
         url: url,

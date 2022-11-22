@@ -11,11 +11,17 @@ import { BootstrapVue,BCard , BootstrapVueIcons } from 'bootstrap-vue'
 Vue.use(BootstrapVue);
 
 
+import VueApexCharts from 'vue-apexcharts'
+
+Vue.use(VueApexCharts)
+
+
 Vue.component("v-select", vSelect);
 Vue.component('b-card', BCard)
 
 Vue.component('tabla-empleado', require('./components/tabla.vue').default);
 Vue.component('nueva-cita', require('./views/NuevaCita.vue').default);
+Vue.component('home', require('./views/home.vue').default);
 
 const app = new Vue({
     vuetify,

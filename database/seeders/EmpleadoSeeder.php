@@ -18,6 +18,15 @@ class EmpleadoSeeder extends Seeder
     {
         DB::table('empleado')->insert([
             'IdEmpleado' => 1,
+            'Nombres' => 'Administrador',
+            'Apellidos' => 'Administrador',
+            'DNI' => '45713871',
+            'correo' => 'admin@gmail.com',
+            'telefono' => '970782555',
+        ]);
+
+        DB::table('empleado')->insert([
+            'IdEmpleado' => 2,
             'Nombres' => 'Nombre Empleado',
             'Apellidos' => 'Apellidos Empleado',
             'DNI' => '45713877',
@@ -27,10 +36,20 @@ class EmpleadoSeeder extends Seeder
 
         DB::table('usuario')->insert([
             'IdUsuario' => 1,
+            'nom_usuario' => 'administrador',
+            'clave' => '123456',
+            'estado' => 'A',
+            'IdEmpleado' => 1,
+            'nivel' => 'A'
+        ]);
+
+        DB::table('usuario')->insert([
+            'IdUsuario' => 2,
             'nom_usuario' => 'empleado1',
             'clave' => '123456',
             'estado' => 'A',
-            'IdEmpleado' => 1
+            'IdEmpleado' => 2,
+            'nivel' => 'E'
         ]);
 
         DB::table('categoria')->insert([
@@ -41,8 +60,9 @@ class EmpleadoSeeder extends Seeder
         
         DB::table('categoria')->insert([
             'IdCategoria' => 2,
-            'descripcion' => 'Prventivo',   
+            'descripcion' => 'Preventivo',   
             'estado' => 'A'         
         ]);
+       
     }
 }

@@ -31,7 +31,7 @@ class Usuario extends Model
 
          if ($exis) {
            $user = DB::table('usuario')
-           ->select('usuario.IdEmpleado','usuario.IdUsuario','usuario.nom_usuario')
+           ->select('usuario.IdEmpleado','usuario.IdUsuario','usuario.nom_usuario','usuario.nivel')
            ->where('usuario.nom_usuario', $username)
            ->where('usuario.clave', $clave)
            ->first();

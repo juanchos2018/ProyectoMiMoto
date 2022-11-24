@@ -31,10 +31,12 @@ Route::get('/', [AuthController::class, 'index']);
 Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
 Route::get('/logout', [AuthController::class, 'logout']);
 
-Route::get('/home', [DashboardController::class, 'index'])->name('home');
 
-//Route::group(['middleware' => 'usercheck'], function () {
 
+Route::group(['middleware' => 'usercheck'], function () {
+
+    Route::get('/home', [DashboardController::class, 'index'])->name('home');
+    
     Route::get('/clientes',  [App\Http\Controllers\ClienteController::class, 'index'])->name('clientes');
     Route::get('/clientes-records',  [App\Http\Controllers\ClienteController::class, 'records']);
     Route::get('/clientes-edit',  [App\Http\Controllers\ClienteController::class, 'getCliente']);
@@ -77,7 +79,7 @@ Route::get('/home', [DashboardController::class, 'index'])->name('home');
 
     // Route::post('/cita-store',  [App\Http\Controllers\CitaController::class, 'store'])->name('cita-store');
 
-//});
+});
 
 // Route::post('/empleado-update',  [App\Http\Controllers\CategoriaController::class, 'update'])->name('empleado-update');
 //TODO: MOVER LO DE ABAJO, DENTRO DEL MIDDLEWARE DE ARRIBA 🐷

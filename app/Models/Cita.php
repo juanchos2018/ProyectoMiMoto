@@ -10,7 +10,8 @@ class Cita extends Model
     use HasFactory;
 
     protected $table = "cita";
-    protected $primaryKey = 'IdCita';
+
+    // protected $primaryKey = 'IdCita';
     protected $fillable = [
         "fec_registro",
         "estado",
@@ -18,4 +19,21 @@ class Cita extends Model
         "IdCliente",
         "IdUsuario"
     ];
+
+    public function cliente()
+    {       
+        return $this->belongsTo(cliente::class,"IdCliente");     
+    }
+
+    public function horario()
+    {       
+        return $this->belongsTo(Horario::class,"IdHorario");     
+    }
+
+    public function usuario() {       
+
+        return $this->belongsTo(Usuario::class, 'IdUsuario');     
+    }
+
+
 }

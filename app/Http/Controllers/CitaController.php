@@ -11,11 +11,18 @@ use App\Models\Moto;
 use App\Models\Motor;
 use Illuminate\Support\Facades\DB;
 
+use App\Http\Resources\CitasCollection;
+
+
 class CitaController extends Controller
 {
     public function index()
     {
         $cita = Cita::get();
+
+
+       // $cita   = new CitasCollection($data);  
+      //  dd($cita);
         // $horarios = Horarios::get();
 
         return view('pages.cita.cita',compact("cita"));
@@ -42,6 +49,7 @@ class CitaController extends Controller
         $cita->estado = $request->estado;
         $cita->IdHorario = $request->IdHorario;
         $cita->IdCliente = $request->IdCliente;
+        $cita->IdCategoria = $request->IdCategoria;
         $cita->IdUsuario = 1;
         $cita->save();
 

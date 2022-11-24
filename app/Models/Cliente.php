@@ -18,4 +18,13 @@ class Cliente extends Model
         "correo",
         "telefono"
     ];
+
+
+    public function cita() {       
+
+      //  return $this->belongsTo(Cita::class,"IdCliente");     
+      return $this->hasMany(cita::class);
+    }
+
+
 }

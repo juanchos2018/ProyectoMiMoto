@@ -11,8 +11,6 @@ use App\Http\Controllers\DashboardController;
 class AuthController extends Controller
 {
 
-
-
     public function index()
     {
         return view('login');
@@ -26,6 +24,7 @@ class AuthController extends Controller
             
       
           $request->session()->put('id_usuario',$result->user->IdUsuario);
+          $request->session()->put('nivel',$result->user->nivel);
           $request->session()->put('nom_empleado',$result->info->Nombres);
           //$request->session()->put('sucursal',$request->cbx_sucursal);
           return redirect()->route('home');

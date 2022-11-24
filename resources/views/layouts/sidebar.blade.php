@@ -1,6 +1,15 @@
 <nav class="mt-2">
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
+         <li class="nav-item">
+            <a href="{{ url('/home') }}" class="nav-link">
+            <i class="nav-icon fas fa-list orange"></i>
+                <p>
+                    Inicio
+                </p>
+            </a>
+
+        </li>
         <li class="nav-item">
             <a href="{{ url('/clientes') }}" class="nav-link">
             <i class="nav-icon fas fa-list orange"></i>
@@ -10,6 +19,7 @@
             </a>
 
         </li>
+        @if (session('nivel')=='A')
         <li class="nav-item">
             <a href="{{ url('/empleados') }}" class="nav-link">
             <i class="nav-icon fas fa-list orange"></i>
@@ -17,8 +27,8 @@
                     Empleado
                 </p>
             </a>
-
         </li>
+        @endif
         <li class="nav-item">
             <a href="{{ url('/categorias') }}" class="nav-link">
             <i class="nav-icon fas fa-list orange"></i>

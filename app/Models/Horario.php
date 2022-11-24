@@ -17,4 +17,10 @@ class Horario extends Model
         'IdCategoria',
         'fec_atencion',
     ];
+
+
+    public function cita() {      
+
+        return $this->hasMany(cita::class);
+    }
 }

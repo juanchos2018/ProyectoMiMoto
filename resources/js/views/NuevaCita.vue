@@ -297,6 +297,7 @@ export default {
         marca: null,
         modelo: null,
         IdCliente: null,
+        IdCategoria: null,
         color: null,
         IdMoto: null,
         modelo_motor: null,
@@ -304,7 +305,7 @@ export default {
         cilindrada_motor: null,
         detalle_moto: null,
         detalle_motor: "detealle",
-        estado: "n",
+        estado: "n",  
         IdUsuario: 1,
         fec_registro: "2022-10-05",
         cilindrada: 200,
@@ -406,7 +407,7 @@ export default {
       let me = this;
       me.descripcion = me.categoria.descripcion;
       let url = "./horario-categoria/" + me.categoria.IdCategoria;
-      console.log("url",url);
+      me.model.IdCategoria=me.categoria.IdCategoria
       axios({
         method: "GET",
         url: url,

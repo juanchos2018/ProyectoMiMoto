@@ -39,6 +39,8 @@ class EmpleadoController extends Controller
         $empleado->fill($request->all());
         $empleado->save();
 
+
+        return redirect()->action([EmpleadoController::class, 'index']);
         //$IdEmpleado=$empleado->id;
 
         // $obj  =new Usuario();
@@ -69,7 +71,8 @@ class EmpleadoController extends Controller
                 "telefono" => $request->telefono,
             ]);
         $return = Empleado::where('DNI',$request->DNI)->get();
-  
+        
+     return redirect()->action([EmpleadoController::class, 'index']);
         // http://proyectomimoto.test/get-cat?IdCategoria=2
     }
 

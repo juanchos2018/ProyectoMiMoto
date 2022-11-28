@@ -366,8 +366,7 @@ export default {
       } else if (!this.model.IdHorario) {
         alert("Seleccionar una fecha");
       } else {
-        console.log(data);
-
+      //  console.log(data);
 
         axios
           .post(url, data, {
@@ -375,11 +374,11 @@ export default {
           })
           .then((response) => {
             console.log(response);
-            const { result, status } = response.data;
+            const { message, status } = response.data;
             if (status == 200) {
-              alert(result);
+              alert(message);
             } else if (status == 400) {
-              alert(result);
+              alert(message);
             } else {
               alert("hubo Algun error");
             }
@@ -388,19 +387,7 @@ export default {
             console.log(error);
           });
       }
-
-      // axios({
-      //   method: "POST",
-      //   url: url,
-      //   data: data,
-
-      // })
-      //   .then(function (response) {
-      //    console.log(response);
-      //   })
-      //   .catch((error) => {
-      //     console.log(error);
-      //   });
+   
     },
     changeServicio(e) {
     ///  console.log(this.categoria);

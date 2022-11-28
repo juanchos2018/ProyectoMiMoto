@@ -28,6 +28,15 @@
                 </p>
             </a>
         </li>
+
+        <li class="nav-item">
+            <a href="{{ url('/usuarios') }}" class="nav-link">
+            <i class="nav-icon fas fa-list orange"></i>
+                <p>
+                    Usuario
+                </p>
+            </a>
+        </li>
         @endif
         <li class="nav-item">
             <a href="{{ url('/categorias') }}" class="nav-link">
@@ -62,6 +71,14 @@
             </a>
         </li>
 
+        <li class="nav-item">
+            <a href="{{ url('/reporte') }}" class="nav-link">
+            <i class="nav-icon fas fa-list orange"></i>
+                <p>
+                Reporte
+                </p>
+            </a>
+        </li>
         <li class="nav-item">
             <a href="{{ url('logout') }}" class="nav-link">
             <i class="nav-icon fas fa-list orange"></i>

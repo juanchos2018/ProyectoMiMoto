@@ -44,28 +44,36 @@ class CitaController extends Controller
 
      try {
 
-        $cita = new Cita();
-        $cita->fec_registro = $request->fec_registro;
-        $cita->estado = $request->estado;
-        $cita->IdHorario = $request->IdHorario;
-        $cita->IdCliente = $request->IdCliente;
-        $cita->IdCategoria = $request->IdCategoria;
-        $cita->IdUsuario = 1;
-        $cita->save();
 
-        $id_cita = $cita->IdCita;
-
-        $det_cita = new DetalleCita();
-
-        $det_cita->IdCita = $id_cita;
-        $det_cita->IdMoto = $request->id_moto;
-        $det_cita->detalle_moto = $request->detalle_moto;
-        $det_cita->detalle_motor = $request->detalle_moto;
-        $det_cita->save();
-
-         $mensaje = 'Guardado con exito';
-
-        return response()->json(['status' => 200,'result'=>$mensaje]);
+            $citas_fecha = Cita::select('fec_registro')
+                ->where('fec_registro','<', $request->fec_registro)
+                ->get();
+                if (count($citas_fecha) < 21) {
+                    $cita = new Cita();
+                    $cita->fec_registro = $request->fec_registro;
+                    $cita->estado = $request->estado;
+                    $cita->IdHorario = $request->IdHorario;
+                    $cita->IdCliente = $request->IdCliente;
+                    $cita->IdCategoria = $request->IdCategoria;
+                    $cita->IdUsuario = 1;
+                    $cita->save();
+            
+                    $id_cita = $cita->IdCita;
+            
+                    $det_cita = new DetalleCita();
+            
+                    $det_cita->IdCita = $id_cita;
+                    $det_cita->IdMoto = $request->id_moto;
+                    $det_cita->detalle_moto = $request->detalle_moto;
+                    $det_cita->detalle_motor = $request->detalle_moto;
+                    $det_cita->save();
+            
+                     $mensaje = 'Guardado con exito';
+            
+                    return response()->json(['status' => 200,'message'=>$mensaje]);
+                }else{
+                    return response()->json(['status' => 400,'message'=>'se lleno los cupos']);
+                }
 
 
         } catch (\Exception $e){               

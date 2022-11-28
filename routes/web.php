@@ -10,6 +10,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\HorarioController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\CitaController;
+use App\Http\Controllers\ReporteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -77,6 +78,14 @@ Route::group(['middleware' => 'usercheck'], function () {
 
     Route::get('/grafico',  [App\Http\Controllers\CitaController::class, 'grafico']);
 
+
+
+
+    Route::get('/reporte',  [ReporteController::class, 'index'])->name('reporte');
+    Route::get('/reporte-records/{IdCategoria}',  [ReporteController::class, 'records']);
+    Route::get('/reporte-excel/{IdCategoria}', [ReporteController::class, 'exportExcel']);
+    Route::get('/reporte-pdf/{IdCategoria}', [ReporteController::class, 'exportPdf']);
+
     // Route::post('/cita-store',  [App\Http\Controllers\CitaController::class, 'store'])->name('cita-store');
 
 });
@@ -85,6 +94,8 @@ Route::group(['middleware' => 'usercheck'], function () {
 //TODO: MOVER LO DE ABAJO, DENTRO DEL MIDDLEWARE DE ARRIBA 🐷
 //usuarios
 Route::get('/usuarios',  [App\Http\Controllers\UsuarioController::class, 'index'])->name('usuarios');
+Route::get('/usuarios-records',  [App\Http\Controllers\UsuarioController::class, 'records']);
+Route::post('/usuario-store',  [App\Http\Controllers\UsuarioController::class, 'store']);
 //categoria update check
 Route::get('/categoria-update',  [App\Http\Controllers\CategoriaController::class, 'update'])->name('categoria-update');
 

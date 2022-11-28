@@ -9,7 +9,7 @@ import "vue-select/dist/vue-select.css";
 
 import { BootstrapVue,BCard , BootstrapVueIcons } from 'bootstrap-vue'
 Vue.use(BootstrapVue);
-
+Vue.use(BootstrapVueIcons)
 
 import VueApexCharts from 'vue-apexcharts'
 
@@ -22,6 +22,8 @@ Vue.component('b-card', BCard)
 Vue.component('tabla-empleado', require('./components/tabla.vue').default);
 Vue.component('nueva-cita', require('./views/NuevaCita.vue').default);
 Vue.component('home', require('./views/home.vue').default);
+Vue.component('usuario', require('./views/usuario.vue').default);
+Vue.component('reporte', require('./views/reporte.vue').default);
 
 const app = new Vue({
     vuetify,

@@ -66,7 +66,7 @@ Route::group(['middleware' => 'usercheck'], function () {
     Route::post('/horario-store',  [App\Http\Controllers\HorarioController::class, 'store'])->name('horario-store');
     Route::get('/horario-categoria/{IdCategoria}',  [App\Http\Controllers\HorarioController::class, 'horariocategoria']);
     Route::get('/horario-show',  [App\Http\Controllers\HorarioController::class, 'show'])->name('horario-show');
-    Route::get('/horario-edit/{IdHorario}',  [App\Http\Controllers\HorarioController::class, 'edit'])->name('horario-edit');
+    Route::get('/horario-edit/{IdHorario}/{IdCategoria}',  [App\Http\Controllers\HorarioController::class, 'edit'])->name('horario-edit');
 
 
     Route::get('/citas',  [App\Http\Controllers\CitaController::class, 'index'])->name('citas');
@@ -89,7 +89,7 @@ Route::group(['middleware' => 'usercheck'], function () {
     // Route::post('/cita-store',  [App\Http\Controllers\CitaController::class, 'store'])->name('cita-store');
 
 });
-
+//Route::get('/horario-show1',  [App\Http\Controllers\HorarioController::class, 'show']);
 // Route::post('/empleado-update',  [App\Http\Controllers\CategoriaController::class, 'update'])->name('empleado-update');
 //TODO: MOVER LO DE ABAJO, DENTRO DEL MIDDLEWARE DE ARRIBA 🐷
 //usuarios

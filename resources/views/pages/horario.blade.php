@@ -63,18 +63,24 @@
                         <label for="start">Fecha </label>
                         <input id="start" class="form-control" type="text" name="start">
                     </div>
+                    <div class="form-group" id="datos">
+                        <label >Cantidad </label>
+                       <h5 id="cantidad"></h5>
+                    </div>
                 </form>
             </div>
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                 <button type="button" class="btn btn-success" id="btnGuardar">Guardar</button>
-                <button type="button" class="btn btn-warning" id="btnModificar">Modificar</button>
-                <button type="button" class="btn btn-danger" id="btnEliminar">Eliminar</button>
+                <!-- <button type="button" class="btn btn-warning" id="btnModificar">Modificar</button>
+                <button type="button" class="btn btn-danger" id="btnEliminar">Eliminar</button> -->
             </div>
         </div>
     </div>
 </div>
+
+
 
 </div>
 </div>

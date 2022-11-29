@@ -12,24 +12,27 @@ document.addEventListener('DOMContentLoaded', function() {
             right: 'dayGridMonth,timeGridWeek,listWeek'
         },
         //para listar
-        events: "http://127.0.0.1:8000/horario-show",
+        events: "/horario-show",
         //para nuevo
         dateClick: function(info){            
             $('#start').val(info.dateStr);
             $('#evento').modal('show');
+            $('#datos').hide();
         },
         //para editar
         eventClick: function(info){
             var horario = info.event;
-            console.log(horario);
-
-            axios.get("http://127.0.0.1:8000/horario-edit/"+horario.id).
+            let IdCategoria  =horario.extendedProps.IdCategoria;
+            axios.get("/horario-edit/"+horario.id+'/'+IdCategoria).
             then(
                 (respuesta) => {
-                    console.log(respuesta);
-                    $('#empleado').val(respuesta.data.IdEmpleado);
-                    $('#categoria').val(respuesta.data.IdCategoria);
-                    $('#start').val(respuesta.data.fec_atencion);
+                  //console.log(respuesta);
+                  $('#datos').show();
+                   const {horario,cantidad} =respuesta.data;
+                    $('#empleado').val(horario.IdEmpleado);
+                    $('#categoria').val(horario.IdCategoria);
+                    $('#start').val(horario.fec_atencion);
+                    $('#cantidad').text(cantidad);
                     $('#evento').modal('show');
                 }
             ).catch(
@@ -55,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
         datos.append("fec_atencion",start);
 
 
-        axios.post("http://127.0.0.1:8000/horario-store", datos,
+        axios.post("/horario-store", datos,
             {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             } 

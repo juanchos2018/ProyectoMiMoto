@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Horario;
 use App\Models\Categoria;
 use App\Models\Empleado;
+use App\Models\Cita;
 
 use Illuminate\Support\Facades\DB;
 
@@ -38,17 +39,21 @@ class HorarioController extends Controller
         //$horario = Horario::select('IdCategoria as title','fec_atencion as start','fec_atencion as end')->get();
         $horario = DB::table('horario')
                     ->join('categoria', 'categoria.IdCategoria', '=', 'horario.IdCategoria')
-                    ->select('horario.IdHorario as id','categoria.descripcion AS title','horario.fec_atencion as start','horario.fec_atencion as end','categoria.color as color')
+                    ->select('horario.IdHorario as id','categoria.descripcion AS title','horario.fec_atencion as start','horario.fec_atencion as end','categoria.color as color','categoria.IdCategoria')
                     ->get();
         //dd($horario);
         return response()->json($horario);
     }
 
-    public function edit($IdHorario)
+    public function edit($IdHorario,$IdCategoria)
     {
         //
         $horario = Horario::find($IdHorario);
-        return response()->json($horario);
+        $rowsCita = Cita::where('IdHorario',$IdHorario)->where('IdCategoria',$IdCategoria)->get();
+        $cantidad =count($rowsCita);
+        
+      //  return response()->json($horario);
+        return response()->json(['status' => 200,'horario'=>$horario,'cantidad'=> $cantidad]);
     }
 
 

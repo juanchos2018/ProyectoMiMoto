@@ -11,13 +11,15 @@ class Cita extends Model
 
     protected $table = "cita";
 
-    // protected $primaryKey = 'IdCita';
+     protected $primaryKey = 'IdCita';
+    // "IdCategoria",
     protected $fillable = [
         "fec_registro",
         "estado",
         "IdHorario",
         "IdCliente",
-        "IdUsuario"
+        "IdUsuario",
+       
     ];
 
     public function cliente()
